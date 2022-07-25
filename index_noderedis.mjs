@@ -4,7 +4,7 @@ import { createCluster } from 'redis';
 const client = createCluster({
   rootNodes: [
     {
-        url: `rediss://${process.env.MEMORYDB_ENDPOINT}:${process.env.MEMORYDB_PORT}`,
+      url: `rediss://${process.env.MEMORYDB_ENDPOINT}:${process.env.MEMORYDB_PORT}`,
     },
     // {
     //     url: "rediss://redis-2-url:6379",
@@ -17,8 +17,8 @@ const client = createCluster({
   defaults: {
     username: process.env.MEMORYDB_USERNAME,
     password: process.env.MEMORYDB_PASSWORD,
-    socket: { tls: true }
-  }
+    socket: { tls: true },
+  },
 });
 
 client.on('connected', () => console.log('connected to redis'));
